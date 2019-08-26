@@ -1,0 +1,22 @@
+<form
+  [formGroup]="form"
+  class="todo-head"
+  (ngSubmit)="onSubmit()">
+  <div class="todo-input">
+    <input
+      class="todo-input__input"
+      id="todoInput"
+      type="text"
+      autocomplete="off"
+      required
+      formControlName="todoText">
+    <label class="todo-input__label" for="todoInput">Input your deal</label>
+    <span class="todo-input__floater"></span>
+  </div>
+
+  <button
+    type="submit"
+    class="todo-head__submit"
+    [disabled]="form.invalid"
+  >Submit</button>
+</form>

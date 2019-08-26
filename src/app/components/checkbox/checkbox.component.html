@@ -1,0 +1,14 @@
+<div class="checkbox">
+  <input
+    [id]="id"
+    [checked]="checked"
+    type="checkbox"
+    class="checkbox__input"
+    (input)="emitCheck($event.target.checked)">
+
+  <label
+    [for]="id"
+    class="checkbox__label">
+    <ng-content></ng-content>
+  </label>
+</div>

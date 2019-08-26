@@ -1,0 +1,13 @@
+<div  class="todo-list">
+  <ul *ngIf="todos.length">
+    <app-todo-item
+      *ngFor="let todo of todos"
+      [todo]="todo">
+    </app-todo-item>
+  </ul>
+  <div
+    *ngIf="!todos.length"
+    class="todo-list__placeholder">
+    No todos yet
+  </div>
+</div>

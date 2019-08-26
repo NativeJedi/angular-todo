@@ -1,0 +1,38 @@
+@import '../../../assets/scss/variables.scss';
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  &__input {
+    display: none;
+
+    &:checked {
+      & + .checkbox__label {
+        &:before {
+          content: '\2713';
+        }
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $main-color;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      border: 1px solid currentColor;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

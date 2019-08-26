@@ -1,0 +1,46 @@
+@import '~normalize.css';
+@import 'fonts';
+@import 'base';
+
+.btn-default, .btn {
+  border: none;
+  background-color: transparent;
+}
+
+.btn {
+  &:focus {
+    outline: none;
+  }
+
+  & + .btn {
+    margin-left: 10px;
+  }
+
+  &--rounded {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      .material-icons {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    .material-icons {
+      @extend %center;
+      font-size: 19px;
+    }
+  }
+
+  &--primary {
+    background-color: $main-color;
+  }
+
+  &--danger {
+    background-color: $danger-color;
+  }
+}

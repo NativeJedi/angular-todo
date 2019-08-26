@@ -1,0 +1,28 @@
+@import '../../../assets/scss/variables.scss';
+
+.todo-filters {
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    padding: 5px 10px;
+    border: 1px solid $text-color;
+    text-transform: lowercase;
+    border-radius: 5px;
+    font-weight: 500;
+
+    &.is-active {
+      background-color: $main-color;
+      border-color: $main-color;
+      color: #fff;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}

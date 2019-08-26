@@ -1,0 +1,100 @@
+@import '../../../assets/scss/variables.scss';
+
+$left-padding: 0px;
+
+.todo-input {
+  position: relative;
+  flex: 1;
+  margin-right: 20px;
+
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px $left-padding;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus,
+    &:valid {
+      & ~ .todo-input__label {
+        transform: translate(-#{$left-padding + 11px}, calc(-100% - 15px)) scale(0.8);
+        color: $main-color;
+      }
+
+      & ~ .todo-input__floater {
+        &::before,
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  &__label {
+    @extend %center-y;
+    left: $left-padding;
+    font-weight: 500;
+    pointer-events: none;
+    transition: transform .3s, color .3s;
+  }
+
+  &__floater {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    display: block;
+    width: 100%;
+    background-color: rgba(#000, 0.3);
+    border-radius: 50%;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 50%;
+      height: 100%;
+      background-color: $main-color;
+      transition: transform .3s;
+      transform: scaleX(0);
+      z-index: 2;
+    }
+
+    &::after {
+      right: 0;
+      transform-origin: 0 0;
+    }
+
+    &::before {
+      left: 0;
+      transform-origin: 100% 0;
+    }
+  }
+}
+
+.todo-head {
+  display: flex;
+  align-items: flex-end;
+
+  &__submit {
+    padding: 7px 20px;
+    background-color: $main-color;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid $main-color;
+    transition: background-color .2s;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($main-color, 0.8);
+    }
+  }
+}

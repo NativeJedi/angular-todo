@@ -1,0 +1,14 @@
+<div class="todo-filters">
+  <ul class="todo-filters__list">
+    <li
+      *ngFor="let filter of filters"
+      class="todo-filters__item">
+      <button
+        [class.is-active]="isFilterActive(filter)"
+        class="todo-filters__btn btn btn-default"
+        (click)="setFilter(filter)">
+        {{ filter }}
+      </button>
+    </li>
+  </ul>
+</div>

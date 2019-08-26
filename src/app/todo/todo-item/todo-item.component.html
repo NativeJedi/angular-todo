@@ -1,0 +1,34 @@
+<li
+  [class.is-active]="todo.isChecked"
+  class="todo-item">
+  <app-checkbox
+    [checked]="todo.isChecked"
+    [id]="todo.id"
+    (check)="checkTodo($event)"
+    class="todo-item__checkbox">
+    <span
+      *ngIf="!isEdit"
+      class="todo-item__text">{{ todo.text }}</span>
+  </app-checkbox>
+
+  <textarea
+    #todoTextarea
+    appAutosize
+    [(ngModel)]="editText"
+    [class.is-active]="isEdit"
+    class="todo-item__textarea"
+    (blur)="editTodo()"></textarea>
+
+  <div class="todo-item__buttons">
+    <button
+      class="todo-item__btn btn btn--rounded btn--primary"
+      (click)="handleEdit()">
+      <i class="material-icons">edit</i>
+    </button>
+    <button
+      class="todo-item__btn btn btn--rounded btn--danger"
+      (click)="deleteTodo()">
+      <i class="material-icons">delete_outline</i>
+    </button>
+  </div>
+</li>
